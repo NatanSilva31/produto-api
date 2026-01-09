@@ -1,8 +1,8 @@
 # Produto API
 
-API REST desenvolvida em **Spring Boot** para gerenciamento de produtos, permitindo cadastro, listagem e atualização de informações básicas.
+API REST desenvolvida em Spring Boot para gerenciamento de produtos, permitindo cadastro e listagem de produtos com cálculo do valor total em estoque.
 
-Projeto criado com foco em boas práticas de organização em camadas (Controller, Service, Repository) e exposição de endpoints RESTful.
+O projeto foi criado com foco em boas práticas de arquitetura em camadas (Controller, Service, Repository) e exposição de endpoints RESTful.
 
 ---
 
@@ -19,9 +19,7 @@ Projeto criado com foco em boas práticas de organização em camadas (Controlle
 ## 📦 Funcionalidades
 - Criar produto
 - Listar produtos
-- Buscar produto por ID
-- Atualizar preço do produto
-- Atualizar status do produto
+- Calcular valor total do estoque por produto (preço × quantidade)
 
 ---
 
@@ -34,30 +32,21 @@ Projeto criado com foco em boas práticas de organização em camadas (Controlle
 {
   "nome": "Produto Exemplo",
   "preco": 100.00,
-  "status": "ATIVO"
+  "quantidade": 5
 }
 ```
 ## 📄 Listar produtos
 GET `/produtos`
-
-## 🔍 Buscar produto por ID
-GET `produtos/{id}`
-
-## ✏️ Atualizar preço do produto
-PATCH `produtos/{id}/preco`
 ```json
 {
-  "preco": 120.00
+  "nome": "Produto Exemplo",
+  "preco": 100.00,
+  "quantidade": 5,
+  "valorEstoque": 500.00
 }
 ```
+O campo `valorEstoque` é calculado pela aplicação no momento da listagem.
 
-## 🔄 Atualizar status do produto
-PATCH ```produtos/{id}/status```
-```json
-{
-  "status": "INATIVO"
-}
-```
 ## 🗄️ Banco de Dados H2
 - Console: `http://localhost:8080/h2-console`
 
