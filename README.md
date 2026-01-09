@@ -67,3 +67,7 @@ A aplicação estará disponível em:
 ```bash
 http://localhost:8080
 ```
+
+## 🧱 Arquitetura do Projeto
+
+![Diagrama de Arquitetura](docs/fluxo_produto.png)
